@@ -6,7 +6,7 @@ load_dotenv()
 
 
 def get_host_port() -> tuple[str, int]:
-    host = os.getenv("HOST", "0.0.0.0")
+    host = os.getenv("HOST", "localhost")
     port_str = os.getenv("PORT", "8000")
     try:
         port = int(port_str)

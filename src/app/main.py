@@ -19,27 +19,27 @@ logger = get_logger("app")
 
 app = FastAPI(title="Groq FastAPI Service", version="1.0.0")
 
-# CORS, adjust as needed
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# # CORS, adjust as needed
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 @app.on_event("startup")
 async def on_startup() -> None:
-    model = get_default_model()
-    has_key = bool(os.getenv("GROQ_API_KEY"))
-    logger.info(
-        "Service startup",
-        extra={
-            "model": model,
-            "groq_key_present": has_key,
-        },
-    )
+    # model = get_default_model()
+    # has_key = bool(os.getenv("GROQ_API_KEY"))
+    # logger.info(
+    #     "Service startup",
+    #     extra={
+    #         "model": model,
+    #         "groq_key_present": has_key,
+    #     },
+    # )
 
 
 @app.get("/", tags=["meta"])  # Simple root endpoint
